@@ -10,7 +10,6 @@ import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 const DashboardPage = ({ isConfirmed }) => (
   <div>
     <h1>Dashboard Page!</h1>
-    <Link to="/">Home</Link>
 
     { !isConfirmed && <ConfirmEmailMessage /> }
 
