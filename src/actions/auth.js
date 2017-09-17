@@ -1,4 +1,4 @@
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from '../types';
+import { USER_LOGGED_IN, USER_LOGGED_OUT, CONFIRMATION_RESENT } from '../types';
 import api from '../api';
 
 // define payload
@@ -9,6 +9,10 @@ export const userLoggedIn = user => ({
 
 export const userLoggedOut = () => ({
   type: USER_LOGGED_OUT
+});
+
+export const confirmResent = () => ({
+  type: CONFIRMATION_RESENT
 });
 
 // make api request and dispatch acytion with data gathered from api call
@@ -29,3 +33,8 @@ export const confirm = token => dispatch =>
     localStorage.bookwormJWT = user.token;
     dispatch(userLoggedIn(user));
   });
+
+export const resendConfirm = user => dispatch =>   
+  api.user.resendConfirmation(user).then(() => {
+    dispatch(confirmResent());
+  })

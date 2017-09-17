@@ -20,7 +20,7 @@ const App = ({ location }) => (
   </div>
 );
 
-// add location={location} to repeir bug with RR4 and connect
+// add location={location} to repair bug with RR4 and connect
 // use shape as opposed to object as the linter prefers this.
 App.propTypes = {
   location: PropTypes.shape({
