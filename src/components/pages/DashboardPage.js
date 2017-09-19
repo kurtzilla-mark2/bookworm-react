@@ -1,30 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
-import ResendConfirmEmail from '../messages/ResendConfirmEmail';
 
-const DashboardPage = ({ isConfirmed, user }) => (
+const DashboardPage = ({ isConfirmed }) => (
   <div>
     <h1>Dashboard Page!</h1>
 
     { !isConfirmed && <ConfirmEmailMessage /> }
-    { !isConfirmed && <ResendConfirmEmail user={user} /> }
 
   </div>
 );
 
 DashboardPage.propTypes = {
-  isConfirmed: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired
+  isConfirmed: PropTypes.bool.isRequired
 }
   
 function mapStateToProps(state) {
   return {
-    isConfirmed: state.user.confirmed,
-    user: state.user
+    isConfirmed: !!state.user.confirmed
   }
 }
 

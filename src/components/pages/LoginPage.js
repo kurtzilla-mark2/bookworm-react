@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginForm from '../forms/LoginForm';
 
@@ -14,8 +13,6 @@ class LoginPage extends Component {
     return (
       <div>
         <h1>Login Page!</h1>
-        <Link to="/">Home</Link>
-
         <LoginForm submit={this.submit} />
       </div>
     );
