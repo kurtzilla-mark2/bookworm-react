@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Message } from 'semantic-ui-react'
 import { connect } from 'react-redux';
-// import { Motion, spring } from 'react-motion';
 
 import { resendConfirmation } from '../../actions/auth';
 import Fade from '../animations/Fade';
@@ -26,8 +25,6 @@ class ConfirmEmailMessage extends React.Component {
   }
 
   render() {
-    // const res = 'your confirmation email has been re-sent';
-
     return (
       <Message info>
         <Message.Header>Please verify your email to unlock awesomeness!</Message.Header>
