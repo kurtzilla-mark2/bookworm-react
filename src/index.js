@@ -10,6 +10,7 @@ import decode from 'jwt-decode';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import 'semantic-ui-css/semantic.min.css';
+import './index.css';
 import rootReducer from './rootReducer';
 import { userLoggedIn } from './actions/auth';
 

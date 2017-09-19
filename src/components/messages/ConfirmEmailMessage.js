@@ -3,25 +3,22 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Message } from 'semantic-ui-react'
 import { connect } from 'react-redux';
+// import { Motion, spring } from 'react-motion';
 
 import { resendConfirmation } from '../../actions/auth';
+import Fade from '../animations/Fade';
 
 class ConfirmEmailMessage extends React.Component {
+  
   state = {
     sent: false
   }
   
-  // TODO animate the fadeout 
   onResend = (e) => {    
     e.preventDefault();
     this.props.resendConfirmation(this.props.email)
     .then(() => {
       this.setState({ sent: true });
-
-      setTimeout(() => {
-        this.setState({ sent: false })
-
-      }, 3000)
     })
     .catch(() => {
       this.setState({ sent: false });
@@ -29,13 +26,23 @@ class ConfirmEmailMessage extends React.Component {
   }
 
   render() {
+    // const res = 'your confirmation email has been re-sent';
+
     return (
       <Message info>
         <Message.Header>Please verify your email to unlock awesomeness!</Message.Header>
-        <Message.Content>
-          { !this.state.sent && <Link to="" onClick={this.onResend}>resend confirmation email</Link> }
-          { this.state.sent && "your confirmation email has been re-sent" }
-        </Message.Content>
+          <div className="dashboard-confirmation-message">
+            { !this.state.sent && 
+              <Message.Content>
+                <Link to="" onClick={this.onResend}>resend confirmation email</Link>           
+              </Message.Content>    
+            }      
+            <Fade in={this.state.sent}>
+              <Message.Content>
+                <span style={{color:"green"}}>a confirmation email has been resent</span>
+              </Message.Content>
+            </Fade>
+          </div>
       </Message>
     );
   }

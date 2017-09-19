@@ -13,6 +13,7 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.12",
+    "react-transition-group": "^2.2.0",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
@@ -28,7 +29,7 @@
     "lint": "eslint src"
   },
   "devDependencies": {
-    "eslint": "^4.5.0",
+    "eslint": "^4.7.1",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-import": "^2.7.0",
